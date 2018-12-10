@@ -1,6 +1,6 @@
 @font-face {
-  font-family: Zitiming;
-  src: url("/fonts/Zitiming.ttf");
+  font-family: 'Dancing Script', cursive;
+  src: url("/fonts/DancingScript-Bold.ttf");
 }
 .post {
   margin-top: 60px;
@@ -1834,7 +1834,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #1a1fff;
+  background: #22a4ff;
 }
 .links-of-blogroll {
   font-size: 13px;
