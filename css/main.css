@@ -1,6 +1,7 @@
 @font-face {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Dancing Script', cursive !important;
   src: url("/fonts/DancingScript-Bold.ttf");
+  font-size: 28px !important;
 }
 .post {
   margin-top: 60px;
@@ -1834,7 +1835,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #22a4ff;
+  background: #ffff2f;
 }
 .links-of-blogroll {
   font-size: 13px;
