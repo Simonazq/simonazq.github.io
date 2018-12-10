@@ -2,10 +2,6 @@
   font-family: Zitiming;
   src: url("/fonts/Zitiming.ttf");
 }
-.site-title {
-  font-size: 28px !important;
-  font-family: 'Zitiming' !important;
-}
 .post {
   margin-top: 60px;
   margin-bottom: 60px;
@@ -1838,7 +1834,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #096bd1;
+  background: #1a1fff;
 }
 .links-of-blogroll {
   font-size: 13px;
