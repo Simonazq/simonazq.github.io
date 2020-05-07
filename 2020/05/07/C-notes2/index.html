@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="leetcode,刷题," />
+  <meta name="keywords" content="C++,notes," />
 
 
 
@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="**Jump Game**   DescriptionGiven an array of non-negative integers, you are initially positioned at the first index of the array.Each element in the array represents your maximum jump length at that p">
+<meta name="description" content="**侯捷老师的C++笔记2**  p7. 三大函数: 拷贝构造, 拷贝复制, 析构12345678910class String&amp;#123;  public:	String (const char* cstr &#x3D; 0);	String (const String&amp; str);	String&amp; operator &#x3D; (const String&amp; str)	~String();">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC #55 - Jump Game">
-<meta property="og:url" content="http://simonazq.com/2018/12/29/leetcode-55/index.html">
+<meta property="og:title" content="C++ Notes_string - 侯捷">
+<meta property="og:url" content="http://simonazq.com/2020/05/07/C-notes2/index.html">
 <meta property="og:site_name" content="Baby&#39;s breath~">
-<meta property="og:description" content="**Jump Game**   DescriptionGiven an array of non-negative integers, you are initially positioned at the first index of the array.Each element in the array represents your maximum jump length at that p">
-<meta property="article:published_time" content="2018-12-29T21:43:54.000Z">
-<meta property="article:modified_time" content="2020-05-07T02:29:48.739Z">
+<meta property="og:description" content="**侯捷老师的C++笔记2**  p7. 三大函数: 拷贝构造, 拷贝复制, 析构12345678910class String&amp;#123;  public:	String (const char* cstr &#x3D; 0);	String (const String&amp; str);	String&amp; operator &#x3D; (const String&amp; str)	~String();">
+<meta property="article:published_time" content="2020-05-07T21:43:51.000Z">
+<meta property="article:modified_time" content="2020-05-07T21:48:44.411Z">
 <meta property="article:author" content="Qing">
-<meta property="article:tag" content="leetcode">
-<meta property="article:tag" content="刷题">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="notes">
 <meta name="twitter:card" content="summary">
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://simonazq.com/2018/12/29/leetcode-55/"/>
+  <link rel="canonical" href="http://simonazq.com/2020/05/07/C-notes2/"/>
 
 
 
 
 
-  <title>LC #55 - Jump Game | Baby's breath~</title>
+  <title>C++ Notes_string - 侯捷 | Baby's breath~</title>
   
 
 
@@ -305,7 +305,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://simonazq.com/2018/12/29/leetcode-55/">
+    <link itemprop="mainEntityOfPage" href="http://simonazq.com/2020/05/07/C-notes2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qing">
@@ -322,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LC #55 - Jump Game</h1>
+          <h1 class="post-title" itemprop="name headline">C++ Notes_string - 侯捷</h1>
         
 
         <div class="post-meta">
@@ -334,8 +334,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-29T13:43:54-08:00">
-                2018-12-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-07T14:43:51-07:00">
+                2020-05-07
               </time>
             
 
@@ -357,8 +357,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
                   </a>
                 </span>
 
@@ -394,37 +394,9 @@
       
 
       
-        <blockquote class="blockquote-center">**Jump Game** </blockquote>
+        <blockquote class="blockquote-center">**侯捷老师的C++笔记2**</blockquote>
 
-<h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>Given an array of non-negative integers, you are initially positioned at the first index of the array.<br>Each element in the array represents your maximum jump length at that position.<br>Determine if you are able to reach the last index.</p>
-<a id="more"></a>
-<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [2,3,1,1,4]</span><br><span class="line">Output: true</span><br><span class="line">Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [3,2,1,0,4]</span><br><span class="line">Output: false</span><br><span class="line">Explanation: You will always arrive at index 3 no matter what. Its maximum</span><br><span class="line">             jump length is 0, which makes it impossible to reach the last index.</span><br></pre></td></tr></table></figure>
-
-<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><h5 id="Dynamic-Programming"><a href="#Dynamic-Programming" class="headerlink" title="Dynamic Programming"></a>Dynamic Programming</h5><p>The basic thought is to think from the last position, the last one can definitely reach itself. So let’s make <code>dp[n-1] = True</code>, <code>dp[i]</code> means whether it can reach the end from index <code>i</code>. </p>
-<p><code>dp[i] = any(dp[i:i + nums[i]])</code> </p>
-<p><code>any()</code> means if there exists one ore more <code>True</code>. </p>
-<p>I came up with this solution in five minutes, but, unfortunately, <code>Time Limit Exceed</code>, that’s what I got.</p>
-<h6 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h6><p><em>Python</em></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">canJump</span><span class="params">(s)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> s:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span>    <span class="comment"># if s = null, return True</span></span><br><span class="line">    n = len(s)</span><br><span class="line">	dp = [<span class="number">0</span>] * n</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> reversed(range(n - <span class="number">1</span>)):	</span><br><span class="line">        j = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> j &lt;= s[i] <span class="keyword">and</span> i + j &lt; n:   <span class="comment"># same as using any()</span></span><br><span class="line">            <span class="keyword">if</span> dp[i + j]:</span><br><span class="line">                dp[i] = <span class="number">1</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> dp[<span class="number">0</span>] == <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<h6 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h6><ul>
-<li>Time Complexity:  O(N^2)  </li>
-<li>Space Complexity:  O(N)  </li>
-</ul>
-<hr>
-<h5 id="Greedy"><a href="#Greedy" class="headerlink" title="Greedy"></a>Greedy</h5><p>We have a variable to store the last position that can reach the end, we track from the end of the array, so <code>lastPos = n - 1</code> at the beginning. When we have <code>i + s[i] &gt;= lastPos</code>, we can know we can reach the end step by step from index <code>i</code>. At the same time, we need to update <code>lastPos</code> to <code>i</code>. At the end, we can just check whether <code>lastPos == 0</code>.</p>
-<h6 id="Algorithm-1"><a href="#Algorithm-1" class="headerlink" title="Algorithm"></a>Algorithm</h6><p><em>Python</em></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">canJump</span><span class="params">(s)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> s:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span>    <span class="comment"># if s = null, return True</span></span><br><span class="line">    n = len(s)</span><br><span class="line">    lastPos = n - <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> reversed(range(n - <span class="number">1</span>)):</span><br><span class="line">        <span class="keyword">if</span> i + s[i] &gt;= lastPos:</span><br><span class="line">            lastPos = i</span><br><span class="line">    <span class="keyword">return</span> lastPos == <span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<h6 id="Complexity-1"><a href="#Complexity-1" class="headerlink" title="Complexity"></a>Complexity</h6><ul>
-<li>Time Complexity:  O(N)  </li>
-<li>Space Complexity:  O(1)  </li>
-</ul>
-<hr>
-
+<h4 id="p7-三大函数-拷贝构造-拷贝复制-析构"><a href="#p7-三大函数-拷贝构造-拷贝复制-析构" class="headerlink" title="p7. 三大函数: 拷贝构造, 拷贝复制, 析构"></a>p7. 三大函数: 拷贝构造, 拷贝复制, 析构</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">String</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">String</span> (<span class="keyword">const</span> <span class="keyword">char</span>* cstr = <span class="number">0</span>);</span><br><span class="line">	<span class="keyword">String</span> (<span class="keyword">const</span> <span class="keyword">String</span>&amp; str);</span><br><span class="line">	<span class="keyword">String</span>&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> <span class="keyword">String</span>&amp; str)</span><br><span class="line">	~<span class="keyword">String</span>();</span><br><span class="line">	<span class="function"><span class="keyword">char</span>* <span class="title">get_c_str</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> m_data; &#125;</span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">char</span>* m_data;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -441,9 +413,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/leetcode/" rel="tag"><i class="fa fa-tag"></i> leetcode</a>
+            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
           
-            <a href="/tags/%E5%88%B7%E9%A2%98/" rel="tag"><i class="fa fa-tag"></i> 刷题</a>
+            <a href="/tags/notes/" rel="tag"><i class="fa fa-tag"></i> notes</a>
           
         </div>
       
@@ -456,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/16/leetcode-300/" rel="next" title="LC #300 - Longest Increasing Subsequence">
-                <i class="fa fa-chevron-left"></i> LC #300 - Longest Increasing Subsequence
+              <a href="/2020/05/06/notes-C++/" rel="next" title="C++ Notes_complex - 侯捷">
+                <i class="fa fa-chevron-left"></i> C++ Notes_complex - 侯捷
               </a>
             
           </div>
@@ -465,10 +437,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/08/leetcode-222/" rel="prev" title="LC #222 - Count Complete Tree Nodes">
-                LC #222 - Count Complete Tree Nodes <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -604,7 +572,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Example"><span class="nav-number">2.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Solution"><span class="nav-number">3.</span> <span class="nav-text">Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Dynamic-Programming"><span class="nav-number">3.1.</span> <span class="nav-text">Dynamic Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Algorithm"><span class="nav-number">3.1.1.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Complexity"><span class="nav-number">3.1.2.</span> <span class="nav-text">Complexity</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Greedy"><span class="nav-number">3.2.</span> <span class="nav-text">Greedy</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Algorithm-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Complexity-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">Complexity</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#p7-三大函数-拷贝构造-拷贝复制-析构"><span class="nav-number">1.</span> <span class="nav-text">p7. 三大函数: 拷贝构造, 拷贝复制, 析构</span></a></li></ol></div>
             
 
           </div>
