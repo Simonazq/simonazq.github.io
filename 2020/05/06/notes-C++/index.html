@@ -79,14 +79,14 @@
 
 
 
-<meta name="description" content="**侯捷老师的C++笔记**   不知道这是第几次说要学C++了。。。。希望这次真的学下来吧。。。。 p1. 头文件与类的声明 Object Based - 基于对象, 面对单一class的设计  Object Oriented - 面向对象, 面对多重classes的设计, 类与类之间的关系  Header中的防御式声明：   C++ (e.g. complex.h) 123456#ifndef">
+<meta name="description" content="**侯捷老师的C++笔记**   不知道这是第几次说要学C++了。。。。希望这次真的学下来吧。。。。  Object Based - 基于对象, 面对单一class的设计 Object Oriented - 面向对象, 面对多重classes的设计, 类与类之间的关系">
 <meta property="og:type" content="article">
-<meta property="og:title" content="notes_c++.md">
+<meta property="og:title" content="C++ Notes - 侯捷">
 <meta property="og:url" content="http://simonazq.com/2020/05/06/notes-C++/index.html">
 <meta property="og:site_name" content="Baby&#39;s breath~">
-<meta property="og:description" content="**侯捷老师的C++笔记**   不知道这是第几次说要学C++了。。。。希望这次真的学下来吧。。。。 p1. 头文件与类的声明 Object Based - 基于对象, 面对单一class的设计  Object Oriented - 面向对象, 面对多重classes的设计, 类与类之间的关系  Header中的防御式声明：   C++ (e.g. complex.h) 123456#ifndef">
+<meta property="og:description" content="**侯捷老师的C++笔记**   不知道这是第几次说要学C++了。。。。希望这次真的学下来吧。。。。  Object Based - 基于对象, 面对单一class的设计 Object Oriented - 面向对象, 面对多重classes的设计, 类与类之间的关系">
 <meta property="article:published_time" content="2020-05-07T02:32:46.000Z">
-<meta property="article:modified_time" content="2020-05-07T02:48:40.644Z">
+<meta property="article:modified_time" content="2020-05-07T03:24:01.729Z">
 <meta property="article:author" content="Qing">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="notes">
@@ -126,7 +126,7 @@
 
 
 
-  <title>notes_c++.md | Baby's breath~</title>
+  <title>C++ Notes - 侯捷 | Baby's breath~</title>
   
 
 
@@ -322,7 +322,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">notes_c++.md</h1>
+          <h1 class="post-title" itemprop="name headline">C++ Notes - 侯捷</h1>
         
 
         <div class="post-meta">
@@ -397,20 +397,49 @@
         <blockquote class="blockquote-center">**侯捷老师的C++笔记** </blockquote>
 
 <p>不知道这是第几次说要学C++了。。。。希望这次真的学下来吧。。。。</p>
-<h4 id="p1-头文件与类的声明"><a href="#p1-头文件与类的声明" class="headerlink" title="p1. 头文件与类的声明"></a>p1. 头文件与类的声明</h4><ul>
-<li><p><em>Object Based - 基于对象, 面对单一class的设计</em></p>
+<ul>
+<li><em>Object Based</em> - 基于对象, 面对单一class的设计</li>
+<li><em>Object Oriented</em> - 面向对象, 面对多重classes的设计, 类与类之间的关系</li>
+</ul>
+<a id="more"></a>  
+
+
+<h4 id="p2-头文件与类的声明"><a href="#p2-头文件与类的声明" class="headerlink" title="p2. 头文件与类的声明"></a>p2. 头文件与类的声明</h4><ul>
+<li><p>防止重复定义文件:</p>
+<ol>
+<li><p>Header中的防御式声明： 宏定义名, 防止同一个文件被包含多次，导致重复定义(redefinition), 这种方法可以被跨平台使用.<br> <em>C++</em> (e.g. complex.h)</p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> __COMPLEX__</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __COMPLEX__</span></span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure></li>
+<li><p>#program once: 保证同一个文件只被编译一次, 但当文件不同名相同内容时还是会出错.</p>
 </li>
-<li><p><em>Object Oriented - 面向对象, 面对多重classes的设计, 类与类之间的关系</em></p>
-</li>
-<li><p>Header中的防御式声明：</p>
+</ol>
 </li>
 </ul>
-<p><em>C++</em> (e.g. complex.h)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> __COMPLEX__</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __COMPLEX__</span></span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="p3-构造函数-amp-amp-inline函数"><a href="#p3-构造函数-amp-amp-inline函数" class="headerlink" title="p3. 构造函数 &amp;&amp; inline函数"></a>p3. 构造函数 &amp;&amp; inline函数</h4><ul>
+<li><p>inline函数：速度更快</p>
+<ul>
+<li>在类内部定义的函数 or 在类外定义有inline关键字的函数(放在函数定义处而不是声明处)。</li>
+<li>但不是所有的都可以成为真正的inline函数, 由编译器来决定。(不包含while, switch, recursive)</li>
+</ul>
+</li>
+<li><p>构造函数的定义方法：</p>
+<ol>
+<li><p>声明时直接初始化： 更快更高效</p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">complex</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">public</span>: </span><br><span class="line">		<span class="built_in">complex</span> (<span class="keyword">double</span> r = <span class="number">0</span>, <span class="keyword">double</span> i = <span class="number">0</span>)</span><br><span class="line">		: re (r), im (i) <span class="comment">// initialization list</span></span><br><span class="line">		&#123; &#125;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">double</span> re, im;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>在函数内部赋值: 相对较慢</p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">complex</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">public</span>: </span><br><span class="line">		<span class="built_in">complex</span> (<span class="keyword">double</span> r = <span class="number">0</span>, <span class="keyword">double</span> i = <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			re = r; im = i; </span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">double</span> re, im;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>函数重载(overloading): 在编译器中函数名其实是不同名的 </li>
+<li>example 1: 构造函数 - wrong<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">complex</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">public</span>: </span><br><span class="line">		<span class="built_in">complex</span> (<span class="keyword">double</span> r = <span class="number">0</span>, <span class="keyword">double</span> i = <span class="number">0</span>)  </span><br><span class="line">		: re (r), im (i) <span class="comment">// initialization list</span></span><br><span class="line">		&#123; &#125;</span><br><span class="line">		<span class="built_in">complex</span> (): re(<span class="number">0</span>), im(<span class="number">0</span>) &#123;&#125;  <span class="comment">// ??! this is wrong, the previous one has the default arguments</span></span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">double</span> re, im;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>example 2: 函数 - correct<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">complex</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">public</span>: </span><br><span class="line">		<span class="built_in">complex</span> (<span class="keyword">double</span> r = <span class="number">0</span>, <span class="keyword">double</span> i = <span class="number">0</span>)</span><br><span class="line">		: re (r), im (i) <span class="comment">// initialization list</span></span><br><span class="line">		&#123; &#125;</span><br><span class="line">		<span class="function"><span class="keyword">double</span> <span class="title">real</span> <span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> re; &#125;</span><br><span class="line">		<span class="function"><span class="keyword">void</span> <span class="title">real</span> <span class="params">(<span class="keyword">double</span> r)</span> </span>&#123; re = r; &#125; <span class="comment">// This is right</span></span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="keyword">double</span> re, im;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-
-
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="p4-参数传递与返回值"><a href="#p4-参数传递与返回值" class="headerlink" title="p4. 参数传递与返回值"></a>p4. 参数传递与返回值</h4>
       
     </div>
     
@@ -586,7 +615,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#p1-头文件与类的声明"><span class="nav-number">1.</span> <span class="nav-text">p1. 头文件与类的声明</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#p2-头文件与类的声明"><span class="nav-number">1.</span> <span class="nav-text">p2. 头文件与类的声明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p3-构造函数-amp-amp-inline函数"><span class="nav-number">2.</span> <span class="nav-text">p3. 构造函数 &amp;&amp; inline函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p4-参数传递与返回值"><span class="nav-number">3.</span> <span class="nav-text">p4. 参数传递与返回值</span></a></li></ol></div>
             
 
           </div>
