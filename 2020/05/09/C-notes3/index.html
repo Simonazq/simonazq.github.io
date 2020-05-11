@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Baby&#39;s breath~">
 <meta property="og:description" content="p10. 类模板，函数模板，static static and this12345678910111213class Account &amp;#123;public:  static double m_rate;  static void set_rate (const double&amp; x) &amp;#123; m_rate &#x3D; x; &amp;#125;&amp;#125;;double Account::m_ra">
 <meta property="article:published_time" content="2020-05-09T21:33:26.000Z">
-<meta property="article:modified_time" content="2020-05-10T04:12:11.788Z">
+<meta property="article:modified_time" content="2020-05-10T22:13:06.940Z">
 <meta property="article:author" content="Qing">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="notes">
@@ -457,8 +457,25 @@
 <li>子类完全继承父类的数据</li>
 <li>构造与析构与组合相同</li>
 <li>base class的dtor必须是virtual，否则会出现undefined behavior<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> _<span class="title">List_node_base</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  _List_node_base* _M_next;</span><br><span class="line">  _List_node_base* _M_prev;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> _Tp&gt;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> _<span class="title">List_node</span></span></span><br><span class="line"><span class="class">:</span> <span class="keyword">public</span> _List_node_base</span><br><span class="line">&#123;</span><br><span class="line">  _tp _M_data;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
+</li>
+</ul>
+<h4 id="p11-虚函数与多态"><a href="#p11-虚函数与多态" class="headerlink" title="p11. 虚函数与多态"></a>p11. 虚函数与多态</h4><ul>
+<li>virtual:<ul>
+<li>non-virtual: 不希望derived class重新定义(override)</li>
+<li>virtual: 希望derived重新定义，自己已经有默认定义</li>
+<li>pure virtual: derived class一定要定义， 没有默认定义<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Shape</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">draw</span> <span class="params">()</span> <span class="keyword">const</span> </span>= <span class="number">0</span>;  <span class="comment">// pure virtual</span></span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">error</span> <span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; msg)</span></span>; <span class="comment">// virtual, 子类可以定义更详细的error</span></span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">objectID</span> <span class="params">()</span> <span class="keyword">const</span></span>; <span class="comment">// non-virtual</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span>:</span> <span class="keyword">public</span> Shape &#123;...&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ellipse</span>:</span> <span class="keyword">public</span> Shape &#123;...&#125;;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>实际应用: (template method) 读取文件时， 除了文件内容不一样，其他的步骤都是一样的，所以其他的步骤都可以提前写好，子类来实现文件内容的读取</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CDocument</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">OnFileOpen</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="comment">// 每个cout代表一个实际动作 (function)</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"dialog..."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"check file status..."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"open file ..."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    Serialize();</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"close file..."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"update all views..."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">Serialize</span><span class="params">()</span> </span>&#123; &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CMyDoc</span> :</span> <span class="keyword">public</span> CDocumnet</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">Serialize</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"CMyDoc::Serialize() &lt;&lt; endl;"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -502,6 +519,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/10/C-notes4/" rel="prev" title="C++_notes4">
+                C++_notes4 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -582,7 +603,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -637,7 +658,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#p10-类模板，函数模板，static"><span class="nav-number">1.</span> <span class="nav-text">p10. 类模板，函数模板，static</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p11-组合与继承"><span class="nav-number">2.</span> <span class="nav-text">p11. 组合与继承</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#p10-类模板，函数模板，static"><span class="nav-number">1.</span> <span class="nav-text">p10. 类模板，函数模板，static</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p11-组合与继承"><span class="nav-number">2.</span> <span class="nav-text">p11. 组合与继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p11-虚函数与多态"><span class="nav-number">3.</span> <span class="nav-text">p11. 虚函数与多态</span></a></li></ol></div>
             
 
           </div>
