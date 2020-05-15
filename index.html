@@ -302,6 +302,337 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://simonazq.com/2020/05/14/C-stl-notes1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Baby's breath~">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/14/C-stl-notes1/" itemprop="url">C_stl_notes1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-14T13:28:23-07:00">
+                2020-05-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote class="blockquote-center">**侯捷老师的C++笔记1--STL**</blockquote>
+
+<h4 id="p1-Basics"><a href="#p1-Basics" class="headerlink" title="p1. Basics"></a>p1. Basics</h4><ul>
+<li><code>OOP</code> vs. <code>GP</code><ul>
+<li><code>OOP</code>: 将<code>data</code>和<code>methods</code>关联起来，</li>
+<li><code>GP</code>: 将<code>data</code>和<code>methods</code>分开来<ul>
+<li><code>Containers</code> and <code>Algorithms</code> 可以各自闭门造車，中间以<code>iterator</code>连通</li>
+<li><code>Algorithms</code>通过<code>Iterators</code>确定操作范围，来取<code>Container</code>的数据<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// default comparator</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">inline</span> <span class="title">const</span> <span class="title">T</span>&amp; <span class="title">max</span>(<span class="title">const</span> <span class="title">T</span>&amp; <span class="title">a</span>, <span class="title">const</span> <span class="title">T</span>&amp; <span class="title">b</span>) &#123;</span></span><br><span class="line">  <span class="keyword">return</span> a &lt; b ? b : a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// comparator as one argument</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">inline</span> <span class="title">const</span> <span class="title">T</span>&amp; <span class="title">max</span>(<span class="title">const</span> <span class="title">T</span>&amp; <span class="title">a</span>, <span class="title">const</span> <span class="title">T</span>&amp; <span class="title">b</span>, <span class="title">Compare</span> <span class="title">comp</span>) &#123;</span></span><br><span class="line">  <span class="keyword">return</span> comp(a, b) ? b : a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// new comparator</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">strLonger</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp; s1, <span class="keyword">const</span> <span class="built_in">string</span>&amp; s2)</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> s1.<span class="built_in">size</span>() &lt; s2.<span class="built_in">size</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// test</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"max of zoo and hello: "</span></span><br><span class="line">     &lt;&lt; <span class="built_in">max</span>(<span class="built_in">string</span>(<span class="string">"zoo"</span>), <span class="built_in">string</span>(<span class="string">"hello"</span>)) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// zoo</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"max of zoo and hello: "</span></span><br><span class="line">     &lt;&lt; <span class="built_in">max</span>(<span class="built_in">string</span>(<span class="string">"zoo"</span>), <span class="built_in">string</span>(<span class="string">"hello"</span>), strLonger) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// hello</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>C++ Standard Library &gt; Standard Template Library (STL - Generic programming)</code></li>
+<li>重要网站:<ul>
+<li>Cplusplus[<a href="http://cplusplus.com/]" target="_blank" rel="noopener">http://cplusplus.com/]</a></li>
+<li>CppReference[<a href="https://en.cppreference.com/w/]" target="_blank" rel="noopener">https://en.cppreference.com/w/]</a></li>
+<li>gcc.gnu.org[<a href="http://gcc.gnu.org/]" target="_blank" rel="noopener">http://gcc.gnu.org/]</a></li>
+</ul>
+</li>
+<li>书籍:<ul>
+<li><code>The C++ standard Library</code></li>
+<li><code>STL源码剖析</code></li>
+</ul>
+</li>
+<li>STL六大部件(<code>Components</code>):<ul>
+<li>容器(<code>containers</code>)</li>
+<li>分配器(<code>allocator</code>)</li>
+<li>算法(<code>algorithms</code>)</li>
+<li>迭代器(<code>iterators</code>)</li>
+<li>适配器(<code>adapters</code>)</li>
+<li>仿函数(<code>functors</code>)<br><img src="https://raw.githubusercontent.com/Simonazq/Markdown_imgs/master/stl_notes1.PNG" alt="avatar"></li>
+</ul>
+</li>
+<li>前闭后开区间：<code>end</code>指向最后一个元素的下一个，地址不一定是连续的<br><img src="https://raw.githubusercontent.com/Simonazq/Markdown_imgs/master/stl_notes2.PNG" alt="avatar"><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Container&lt;T&gt; c;</span><br><span class="line">...</span><br><span class="line">Container&lt;T&gt;::iterator ite = c.<span class="built_in">begin</span>();</span><br><span class="line"><span class="keyword">for</span> (; ite != c.<span class="built_in">end</span>(); ++ite)</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure></li>
+<li><code>range-based for statement (since C++11)</code><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// e.g.1</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i : &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">4</span>&#125;) &#123;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// e.g.2</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; vec;</span><br><span class="line">...</span><br><span class="line"><span class="comment">//不改变值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> elem: vec) &#123;</span><br><span class="line">  <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; ekem &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 改变值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span>&amp; elem: vec) &#123;</span><br><span class="line">  elem *= <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>Specialization(特化): 对指定的类型有不一样的操作</li>
+<li>Partial Specialization(偏特化):<ul>
+<li>两个模板参数变成一个</li>
+<li>范围: 是指针，或者const</li>
+</ul>
+</li>
+</ul>
+<h4 id="Container-容器"><a href="#Container-容器" class="headerlink" title="Container(容器)"></a>Container(容器)</h4><ul>
+<li>分类</li>
+<li>list (双向链表) –&gt; 不能用<code>::sort()</code>来排序，因为需要randomAccessIterator, 而list不属于</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://simonazq.com/2020/05/11/C-notes5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Baby's breath~">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/11/C-notes5/" itemprop="url">C++_notes5</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-11T17:41:17-07:00">
+                2020-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote class="blockquote-center">**侯捷老师的C++笔记5**</blockquote>
+#### p2. `Conversion function`, 转换函数
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fraction</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="comment">// non-explicit-one-argument-ctor</span></span><br><span class="line">  Fraction (<span class="keyword">int</span> num, <span class="keyword">int</span> den = <span class="number">1</span>)</span><br><span class="line">  : m_numerator (num), m_denominator (den) &#123; &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// explicit-one-argument-ctor</span></span><br><span class="line">  <span class="function"><span class="keyword">explicit</span> <span class="title">Fraction</span> <span class="params">(<span class="keyword">int</span> num, <span class="keyword">int</span> dne = <span class="number">1</span>)</span></span></span><br><span class="line">  : m_numerator (num), m_denominator (den) &#123;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="comment">// 将Fraction直接转成double类型，不用写返回类型</span></span><br><span class="line"> <span class="comment">// double d = 4 + f;</span></span><br><span class="line">  <span class="function"><span class="keyword">operator</span> <span class="title">double</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">double</span>) m_numerator / m_denominator;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 定义Fraction的+</span></span><br><span class="line">  <span class="comment">// Fraction d2 = f + 4; 4必须在右边</span></span><br><span class="line">  Fraction <span class="keyword">operator</span> + (<span class="keyword">const</span> Fraction&amp; f) &#123;</span><br><span class="line">    <span class="keyword">return</span> Fraction(...);</span><br><span class="line">  &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  <span class="keyword">int</span> m_numerator; <span class="comment">// 分子</span></span><br><span class="line">  <span class="keyword">int</span> m_denominator; <span class="comment">// 分母</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">Fraction <span class="title">f</span> <span class="params">(<span class="number">3</span>, <span class="number">5</span>)</span></span>;</span><br><span class="line">Fraction d = f + <span class="number">4</span>; <span class="comment">//Error, ambiguous</span></span><br><span class="line"><span class="comment">// 可以调用double(), d可以转换成fraction，也可以调用operator+，4转换成fraction</span></span><br><span class="line">Fraction d = <span class="number">4</span> + f;  <span class="comment">// no error, can only use 可以调用double</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://simonazq.com/2020/05/10/C-notes4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1593,311 +1924,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://simonazq.com/2019/01/09/leetcode-318/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Qing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Baby's breath~">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/09/leetcode-318/" itemprop="url">LC #318 - Maximum Product of Word Lengths</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-09T15:30:45-08:00">
-                2019-01-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote class="blockquote-center">**Maximum Product of Word Lengths** </blockquote>
-
-<h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>Given a string array words, find the maximum value of <code>length(word[i]) * length(word[j])</code> where the two words do not share common letters. You may assume that each word will contain only lower case letters. If no such two words exist, return 0.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/09/leetcode-318/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://simonazq.com/2019/01/08/leetcode-222/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Qing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Baby's breath~">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/08/leetcode-222/" itemprop="url">LC #222 - Count Complete Tree Nodes</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-08T15:25:50-08:00">
-                2019-01-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote class="blockquote-center">**Count Complete Tree Nodes** </blockquote>
-
-<h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>Given a complete binary tree, count the number of nodes.</p>
-<p>The definition of a complete binary tree: </p>
-<blockquote>
-<p>In a complete binary tree every level, except possibly the last, is completely filled, and all nodes in the last level are as far left as possible. It can have between 1 and 2h nodes inclusive at the last level h.</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/08/leetcode-222/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -1947,7 +1978,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
