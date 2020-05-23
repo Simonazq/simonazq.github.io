@@ -302,6 +302,303 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://simonazq.com/2020/05/22/C-stl-notes3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Baby's breath~">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/22/C-stl-notes3/" itemprop="url">C_stl_notes3</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-22T18:29:55-07:00">
+                2020-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote class="blockquote-center">**侯捷老师的C++笔记3--STL**</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://simonazq.com/2020/05/22/C-stl-notes2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Baby's breath~">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/22/C-stl-notes2/" itemprop="url">C_stl_notes2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-22T17:00:33-07:00">
+                2020-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote class="blockquote-center">**侯捷老师的C++笔记2--STL**</blockquote>
+
+<h3 id="deque-amp-amp-queue-amp-amp-stack"><a href="#deque-amp-amp-queue-amp-amp-stack" class="headerlink" title="deque &amp;&amp; queue &amp;&amp; stack"></a><code>deque</code> &amp;&amp; <code>queue</code> &amp;&amp; <code>stack</code></h3><h4 id="deque-双向queue"><a href="#deque-双向queue" class="headerlink" title="deque: 双向queue"></a><code>deque</code>: 双向<code>queue</code></h4><pre><code>- 模拟连续空间, 实际是多个连续空间拼接
+![avatar](https://raw.githubusercontent.com/Simonazq/Markdown_imgs/master/stl_notes_deque.PNG)</code></pre>  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bufsiz: 每个buffer所容纳的元素个数</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Alloc</span> = <span class="title">alloc</span>, <span class="title">size_t</span> <span class="title">BufSize</span> = 0&gt;</span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">deque</span> &#123;</span></span><br><span class="line">  <span class="keyword">public</span>：</span><br><span class="line">  <span class="keyword">typedef</span> T value_type;</span><br><span class="line">  <span class="keyword">typedef</span> __deque_iterator&lt;T,T&amp;,T*,BufSize&gt; iterator;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">  <span class="keyword">typedef</span> pointer* map_pointer; <span class="comment">// T**</span></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">  iterator start;</span><br><span class="line">  iterator finish;</span><br><span class="line">  map_pointer <span class="built_in">map</span>;</span><br><span class="line">  size_type map_size;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function">iterator <span class="title">begin</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> start;&#125;</span><br><span class="line">  <span class="function">iterator <span class="title">end</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> finish;&#125;</span><br><span class="line">  <span class="function">size_type <span class="title">size</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;<span class="keyword">return</span> finish - start;&#125;  </span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// deque&lt;T&gt;::insert() ---&gt; 会根据pos的位置判断从前面插入还是后边插入</span></span><br><span class="line"><span class="function">iterator <span class="title">insert</span><span class="params">(iterator <span class="built_in">position</span>, <span class="keyword">const</span> value_type&amp; x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">position</span>.cur == start.cur) &#123;</span><br><span class="line">    push_front(x);  <span class="comment">// deque最前端</span></span><br><span class="line">    <span class="keyword">return</span> start;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">position</span>.cur == finish.cur) &#123;</span><br><span class="line">    push_back(x);  <span class="comment">// deque最尾端</span></span><br><span class="line">    iterator tmp = finish;</span><br><span class="line">    --tmp;</span><br><span class="line">    <span class="keyword">return</span> tmp;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> insert_aux(<span class="built_in">position</span>, x);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Alloc</span>, <span class="title">size_t</span> <span class="title">BufSize</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">typename</span> <span class="title">deque</span>&lt;T, Alloc, BufSize&gt;:</span>:__deque_iterator</span><br><span class="line"><span class="built_in">deque</span>&lt;T, Alloc, BufSize&gt;::insert_aux(iterator pos, <span class="keyword">const</span> value_type&amp; x) &#123;</span><br><span class="line">  difference_type index = pos - start;</span><br><span class="line">  value_type x_copy = x;</span><br><span class="line">  <span class="keyword">if</span> (index &lt; <span class="built_in">size</span>() / <span class="number">2</span>) &#123;</span><br><span class="line">    push_front(front()); <span class="comment">// 给insert的元素挪出一个位置</span></span><br><span class="line">    ...</span><br><span class="line">    copy(front2, pos1, front1); <span class="comment">// move element</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    push_back(back()); <span class="comment">// 同上</span></span><br><span class="line">    ...</span><br><span class="line">    copy_backward(pos, back2, back1);</span><br><span class="line">  &#125;</span><br><span class="line">  *pos = x_copy; <span class="comment">// insert x at position</span></span><br><span class="line">  <span class="keyword">return</span> pos;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// iterator 如何模拟连续空间</span></span><br><span class="line">difference_type <span class="keyword">operator</span>-(<span class="keyword">const</span> self&amp; x) <span class="keyword">const</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">// 两个ite之间buffer的总长度 + itr到buffer末尾的长度 + x到buffer起始的长度</span></span><br><span class="line">  <span class="keyword">return</span> difference_type(buffer_size()) * (node - x.node - <span class="number">1</span>) + (cur - first) + (x.last - x.cur);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ++</span></span><br><span class="line">self&amp; <span class="keyword">operator</span>++() &#123;</span><br><span class="line">  ++ cur;</span><br><span class="line">  <span class="keyword">if</span> (cur == last) &#123;</span><br><span class="line">    set_node(node + <span class="number">1</span>);</span><br><span class="line">    cur = first;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line">self <span class="keyword">operator</span>++(<span class="keyword">int</span>) &#123;</span><br><span class="line">  self tmp = *<span class="keyword">this</span>;</span><br><span class="line">  ++*<span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">return</span> tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">set_node</span><span class="params">(map_pointer new_node)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  node = new_node;</span><br><span class="line">  first = *new_node;</span><br><span class="line">  last = first + difference_type(buffer_size());</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// +=</span></span><br><span class="line">self&amp; <span class="keyword">operator</span>+=(difference_type n) &#123;</span><br><span class="line">  difference_type offset = n + (cur - first);</span><br><span class="line">  <span class="keyword">if</span> (offset &gt; <span class="number">0</span> &amp;&amp; offset &lt; difference_type(buffer_size()))</span><br><span class="line">    <span class="comment">// 目标位置在同一个buffer上</span></span><br><span class="line">    cur += n;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// -= 通用此函数</span></span><br><span class="line">    difference_type node_offset =</span><br><span class="line">    offset &gt; <span class="number">0</span> ? offset / difference_type(buffer_size()) :</span><br><span class="line">    -difference_type((-offset - <span class="number">1</span>) / buffer_size() - <span class="number">1</span>);</span><br><span class="line">    <span class="comment">// 切到目标所在的buffer</span></span><br><span class="line">    set_node(node + node_offset);</span><br><span class="line">    cur = first + (offset - node_offset * difference_type(buffer_size()));</span><br><span class="line">  &#125;</span><br><span class="line">  retrun *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line">self <span class="keyword">operator</span>+(differnce_type n) <span class="keyword">const</span> &#123;</span><br><span class="line">  self tmp = *<span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">return</span> tmp += n; <span class="comment">// 调用+=</span></span><br><span class="line">&#125;</span><br><span class="line">self&amp; <span class="keyword">operator</span>-=(differnce_type n)</span><br><span class="line">&#123;<span class="keyword">return</span> *<span class="keyword">this</span> += n;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="queue"><a href="#queue" class="headerlink" title="queue:"></a><code>queue</code>:</h4><ul>
+<li>只有<code>push_back</code>和<code>pop_front</code></li>
+<li>不允许遍历，不提供<code>iterator</code></li>
+<li>也可以选择<code>list</code>作为底层容器，不能选择<code>vector</code>, <code>set</code>, <code>map</code><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Sequence</span>=<span class="title">deque</span>&lt;T&gt;&gt;</span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">queue</span> &#123;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="keyword">typedef</span> <span class="keyword">typename</span> Sequence::value_type value_type;</span><br><span class="line">  ...size_type, reference, const_reference</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">  Sequence c; <span class="comment">// 底层容器，默认为deque</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="keyword">bool</span> <span class="title">empty</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;<span class="keyword">return</span> c.empty();&#125;</span><br><span class="line">  <span class="function">size_type <span class="title">size</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> c.<span class="built_in">size</span>();&#125;</span><br><span class="line">  <span class="function">reference <span class="title">front</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> c.front();&#125;</span><br><span class="line">  <span class="function">const_reference <span class="title">front</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;<span class="keyword">return</span> c.front();&#125;</span><br><span class="line">  <span class="function">reference <span class="title">back</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> c.back();&#125;</span><br><span class="line">  <span class="function">const_reference <span class="title">back</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;<span class="keyword">return</span> c.back();&#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">const</span> value_type&amp; x)</span> </span>&#123;c.push_back(x);&#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;c.pop_front();&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="stack："><a href="#stack：" class="headerlink" title="stack："></a><code>stack</code>：</h4></li>
+<li>只有<code>push_back</code>和<code>pop_back</code></li>
+<li>不允许遍历，不提供<code>iterator</code></li>
+<li>也可以选择<code>list</code> or <code>vector</code>作为底层容器，不能选择<code>set</code>, <code>map</code><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Sequence</span>=<span class="title">deque</span>&lt;T&gt;&gt;</span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">stack</span> &#123;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="keyword">typedef</span> <span class="keyword">typename</span> Sequence::value_type value_type;</span><br><span class="line">  ...size_type, reference, const_reference</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">  Sequence c; <span class="comment">// 底层容器，默认为deque</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="keyword">bool</span> <span class="title">empty</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;<span class="keyword">return</span> c.empty();&#125;</span><br><span class="line">  <span class="function">size_type <span class="title">size</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> c.<span class="built_in">size</span>();&#125;</span><br><span class="line">  <span class="function">reference <span class="title">top</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> c.top();&#125;</span><br><span class="line">  <span class="function">const_reference <span class="title">top</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;<span class="keyword">return</span> c.top();&#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">const</span> value_type&amp; x)</span> </span>&#123;c.push_back(x);&#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;c.pop_back();&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://simonazq.com/2020/05/19/C-basic/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -943,9 +1240,35 @@
 </ul>
 </li>
 </ul>
-<h4 id="List-双向环状链表"><a href="#List-双向环状链表" class="headerlink" title="List (双向环状链表)"></a>List (双向环状链表)</h4><ul>
-<li>不能用<code>::sort()</code>来排序，因为要<code>randomAccessIterator</code>, 而<code>list</code>不属于</li>
-<li><code>iterator</code> 的<code>end()</code>指向一个空白节点<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// G2.9</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">struct</span> __<span class="title">list_node</span> &#123;</span></span><br><span class="line">  <span class="keyword">typedef</span> <span class="keyword">void</span>* void_pointer;</span><br><span class="line">  void_pointer prev; <span class="comment">// 需要后期转型, 在G4.9有所改变</span></span><br><span class="line">  void_pointer next;</span><br><span class="line">  T data;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// list's iterators</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Ref</span>, <span class="title">class</span> <span class="title">Ptr</span>&gt; // 多余了，只需要传一个即可</span></span><br><span class="line"><span class="class"><span class="title">struct</span> __<span class="title">list_iterator</span> &#123;</span></span><br><span class="line">  <span class="comment">// Iterator必须提供的5种associated types</span></span><br><span class="line">  <span class="keyword">typedef</span> __list_iterator&lt;T, Ref, Ptr&gt; self;</span><br><span class="line">  <span class="keyword">typedef</span> bidirectional_iterator_tag iterator_category;</span><br><span class="line">  <span class="keyword">typedef</span> T value_type;</span><br><span class="line">  <span class="keyword">typedef</span> Ptr pointer;</span><br><span class="line">  <span class="keyword">typedef</span> Ref reference;</span><br><span class="line">  <span class="keyword">typedef</span> __list_node&lt;T&gt;* link_type;</span><br><span class="line">  <span class="keyword">typedef</span> <span class="keyword">ptrdiff_t</span> difference_type;</span><br><span class="line"></span><br><span class="line">  link_type node;</span><br><span class="line">  reference <span class="keyword">operator</span>*() <span class="keyword">const</span> &#123; <span class="keyword">return</span> (*node).data; &#125;</span><br><span class="line">  pointer <span class="keyword">operator</span>-&gt;() <span class="keyword">const</span> &#123; <span class="keyword">return</span> &amp;(<span class="keyword">operator</span>*()); &#125;</span><br><span class="line">  <span class="comment">// prefix add, ++i, return reference</span></span><br><span class="line">  self&amp; <span class="keyword">operator</span>++()</span><br><span class="line">  &#123;</span><br><span class="line">    node = (link_type)((*node).next);  <span class="comment">// node是迭代器的指针</span></span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>; <span class="comment">//return by reference</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// postfix add, i++, with an int argument, return value</span></span><br><span class="line">  self <span class="keyword">operator</span>++(<span class="keyword">int</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    self tmp = *<span class="keyword">this</span>; <span class="comment">// 先唤起copy ctor，所以不会唤起operator*</span></span><br><span class="line">    ++*<span class="keyword">this</span>; <span class="comment">// 不会唤起operator*, 因为*this会作为++()的参数</span></span><br><span class="line">    <span class="keyword">return</span> tmp; <span class="comment">// return by value， 唤起copy ctor</span></span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="List-双向环状链表"><a href="#List-双向环状链表" class="headerlink" title="List (双向环状链表)"></a>List (双向环状链表)</h3><ul>
+<li><p>不能用<code>::sort()</code>来排序，因为要<code>randomAccessIterator</code>, 而<code>list</code>不属于</p>
+</li>
+<li><p><code>iterator</code> 的<code>end()</code>指向一个空白节点<br><img src="https://raw.githubusercontent.com/Simonazq/Markdown_imgs/master/stl_notes_list.PNG" alt="avatar"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// G2.9</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">struct</span> __<span class="title">list_node</span> &#123;</span></span><br><span class="line">  <span class="keyword">typedef</span> <span class="keyword">void</span>* void_pointer;</span><br><span class="line">  void_pointer prev; <span class="comment">// 需要后期转型, 在G4.9有所改变</span></span><br><span class="line">  void_pointer next;</span><br><span class="line">  T data;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// list's iterators</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Ref</span>, <span class="title">class</span> <span class="title">Ptr</span>&gt; // 多余了，只需要传一个即可</span></span><br><span class="line"><span class="class"><span class="title">struct</span> __<span class="title">list_iterator</span> &#123;</span></span><br><span class="line">  <span class="comment">// Iterator必须提供的5种associated types</span></span><br><span class="line">  <span class="keyword">typedef</span> __list_iterator&lt;T, Ref, Ptr&gt; self;</span><br><span class="line">  <span class="keyword">typedef</span> bidirectional_iterator_tag iterator_category;</span><br><span class="line">  <span class="keyword">typedef</span> T value_type;</span><br><span class="line">  <span class="keyword">typedef</span> Ptr pointer;</span><br><span class="line">  <span class="keyword">typedef</span> Ref reference;</span><br><span class="line">  <span class="keyword">typedef</span> __list_node&lt;T&gt;* link_type;</span><br><span class="line">  <span class="keyword">typedef</span> <span class="keyword">ptrdiff_t</span> difference_type;</span><br><span class="line"></span><br><span class="line">  link_type node;</span><br><span class="line">  reference <span class="keyword">operator</span>*() <span class="keyword">const</span> &#123; <span class="keyword">return</span> (*node).data; &#125;</span><br><span class="line">  pointer <span class="keyword">operator</span>-&gt;() <span class="keyword">const</span> &#123; <span class="keyword">return</span> &amp;(<span class="keyword">operator</span>*()); &#125;</span><br><span class="line">  <span class="comment">// prefix add, ++i, return reference</span></span><br><span class="line">  self&amp; <span class="keyword">operator</span>++()</span><br><span class="line">  &#123;</span><br><span class="line">    node = (link_type)((*node).next);  <span class="comment">// node是迭代器的指针</span></span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>; <span class="comment">//return by reference</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// postfix add, i++, with an int argument, return value</span></span><br><span class="line">  self <span class="keyword">operator</span>++(<span class="keyword">int</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    self tmp = *<span class="keyword">this</span>; <span class="comment">// 先唤起copy ctor，所以不会唤起operator*</span></span><br><span class="line">    ++*<span class="keyword">this</span>; <span class="comment">// 不会唤起operator*, 因为*this会作为++()的参数</span></span><br><span class="line">    <span class="keyword">return</span> tmp; <span class="comment">// return by value， 唤起copy ctor</span></span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="vector"><a href="#vector" class="headerlink" title="vector :"></a>vector :</h3></li>
+</ul>
+<ul>
+<li><p>当空间不够时，会扩充为原来大小的二倍，需要将原来的数据拷贝到新的地址</p>
+</li>
+<li><p>连续空间，iterator可以用单纯的指针来表示</p>
+<ul>
+<li><code>const size_type len = old_size != 0 ? 2 * old_size : 1;</code></li>
+</ul>
+</li>
+<li><p>vector’s iterator:</p>
+<ul>
+<li><code>vector&lt;int&gt; vec;</code><br><code>vector&lt;int&gt;::iterator ite = vec.begin();</code><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>, <span class="title">class</span> <span class="title">Alloc</span> = <span class="title">alloc</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">vector</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="keyword">typedef</span> T value_type;</span><br><span class="line">  <span class="keyword">typedef</span> value_type* iterator; <span class="comment">// T*</span></span><br><span class="line">  <span class="keyword">typedef</span> value_type&amp; reference;</span><br><span class="line">  <span class="keyword">typedef</span> <span class="keyword">size_t</span> size_type;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">  iterator start;</span><br><span class="line">  iterator finish;</span><br><span class="line">  iterator end_of_storage;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function">iterator <span class="title">begin</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> start;&#125;</span><br><span class="line">  <span class="function">iterator <span class="title">end</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> finish;&#125;</span><br><span class="line">  <span class="function">size_type <span class="title">size</span><span class="params">()</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function">  </span>&#123;<span class="keyword">return</span> size_type(finish() - <span class="built_in">begin</span>());&#125;</span><br><span class="line">  <span class="function">size_type <span class="title">capacity</span><span class="params">()</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function">  </span>&#123;<span class="keyword">return</span> size_type(end_of_storage - <span class="built_in">begin</span>());&#125;</span><br><span class="line">  <span class="comment">// 不直接使用begin和finish是以防之后设计的变化</span></span><br><span class="line">  <span class="function"><span class="keyword">bool</span> <span class="title">empty</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;<span class="keyword">return</span> <span class="built_in">begin</span>() == <span class="built_in">end</span>();&#125;</span><br><span class="line">  <span class="comment">// []重载</span></span><br><span class="line">  reference <span class="keyword">operator</span>[]（size_type n)</span><br><span class="line">  &#123;<span class="keyword">return</span> *(<span class="built_in">begin</span>() + n);&#125;</span><br><span class="line">  <span class="function">reference <span class="title">front</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> *<span class="built_in">begin</span>();&#125;</span><br><span class="line">  <span class="function">reference <span class="title">back</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> (*<span class="built_in">end</span>() - <span class="number">1</span>);&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h3></li>
+<li><p>固定数量的数组，没有ctor也没有dtor</p>
+</li>
+<li><p>连续空间存储</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> _Tp, <span class="built_in">std</span>::<span class="keyword">size_t</span> _Nm&gt;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">array</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="keyword">typedef</span> _Tp value_type;</span><br><span class="line">  <span class="keyword">typedef</span> _Tp* pointer;</span><br><span class="line">  <span class="keyword">typedef</span> value_type* iterator;</span><br><span class="line">  <span class="comment">// support for zero-sized arrays mandatory</span></span><br><span class="line">  value_type _M_instance[_Nm ? _Nm : <span class="number">1</span>];</span><br><span class="line">  <span class="function">iterator <span class="title">begin</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;<span class="keyword">return</span> iterator(&amp;_M_instance[<span class="number">0</span>]);&#125;</span><br><span class="line">  <span class="function">iterator <span class="title">end</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;<span class="keyword">return</span> iterator(&amp;_M_instance[_Nm]);&#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="forwar-list-单向链表"><a href="#forwar-list-单向链表" class="headerlink" title="forwar_list: 单向链表"></a>forwar_list: 单向链表</h3></li>
+<li><p>类似于双向链表</p>
 </li>
 </ul>
 
@@ -1687,306 +2010,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://simonazq.com/2020/05/06/notes-C++/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Qing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Baby's breath~">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/06/notes-C++/" itemprop="url">C++ Notes_complex - 侯捷</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-06T19:32:46-07:00">
-                2020-05-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote class="blockquote-center">**侯捷老师的C++笔记1**</blockquote>
-
-<p>不知道这是第几次说要学C++了。。。。希望这次真的学下来吧。。。。</p>
-<ul>
-<li><em>Object Based</em> - 基于对象, 面对单一class的设计what</li>
-<li><em>Object Oriented</em> - 面向对象, 面对多重classes的设计, 类与类之间的关系</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/05/06/notes-C++/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://simonazq.com/2019/01/22/leetcode-3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Qing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Baby's breath~">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/22/leetcode-3/" itemprop="url">LC #3 - Longest Substring Without Repeating Characters</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-22T14:08:33-08:00">
-                2019-01-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">Leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote class="blockquote-center">**Longest Substring Without Repeating Characters** </blockquote>
-
-<h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>Given a string, find the length of the longest substring without repeating characters.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/22/leetcode-3/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2041,7 +2064,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
