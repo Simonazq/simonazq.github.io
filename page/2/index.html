@@ -302,6 +302,183 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://simonazq.com/2020/05/07/C-notes2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Baby's breath~">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/07/C-notes2/" itemprop="url">C++ Notes_string - 侯捷</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-07T14:43:51-07:00">
+                2020-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote class="blockquote-center">**侯捷老师的C++笔记2**</blockquote>
+
+<h4 id="p7-三大函数-拷贝构造-拷贝赋值-析构"><a href="#p7-三大函数-拷贝构造-拷贝赋值-析构" class="headerlink" title="p7. 三大函数: 拷贝构造, 拷贝赋值(=), 析构"></a>p7. 三大函数: 拷贝构造, 拷贝赋值(=), 析构</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">String</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="keyword">String</span> (<span class="keyword">const</span> <span class="keyword">char</span>* cstr = <span class="number">0</span>);  <span class="comment">// String s1("hello");</span></span><br><span class="line">  <span class="comment">// 拷贝构造 copy ctor</span></span><br><span class="line">  <span class="keyword">String</span> (<span class="keyword">const</span> <span class="keyword">String</span>&amp; str);   <span class="comment">// String s2(str);</span></span><br><span class="line">  <span class="comment">// 拷贝赋值 copy assignment op=</span></span><br><span class="line">  <span class="keyword">String</span>&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> <span class="keyword">String</span>&amp; str)  <span class="comment">// String s3 = s1;</span></span><br><span class="line">  ~<span class="keyword">String</span>();</span><br><span class="line">  <span class="function"><span class="keyword">char</span>* <span class="title">get_c_str</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> m_data; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  <span class="keyword">char</span>* m_data;</span><br><span class="line">&#125;；</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="title">String::String</span> <span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* cstr = <span class="number">0</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (cstr) &#123;</span><br><span class="line">    m_data = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span> (cstr) + <span class="number">1</span>];</span><br><span class="line">    <span class="built_in">strcpy</span> (m_data, cstr);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	m_data = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">1</span>];</span><br><span class="line">    *m_data = <span class="string">'\0'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">String</span>::~<span class="keyword">String</span>()</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">delete</span>[] m_data;  <span class="comment">// 释放指针, 防止内存泄漏</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>拷贝构造函数:</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span></span><br><span class="line"><span class="keyword">String</span>::<span class="keyword">String</span> (<span class="keyword">const</span> <span class="keyword">String</span>&amp; str)</span><br><span class="line">&#123;</span><br><span class="line">  m_data = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span> (str.m_data) + <span class="number">1</span>];</span><br><span class="line">  <span class="built_in">strcpy</span> (m_data, str.m_data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>拷贝赋值</p>
+<ul>
+<li>直接=: 浅拷贝, 指针指向同一个</li>
+<li>copy assignment operator，必须要进行自我检测<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span></span><br><span class="line"><span class="keyword">String</span>&amp; <span class="keyword">String</span>::<span class="keyword">operator</span> = (<span class="keyword">const</span> <span class="keyword">String</span>&amp; str)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span> == &amp;str) <span class="keyword">return</span> *<span class="keyword">this</span>; <span class="comment">// self assignment check, 检测指针</span></span><br><span class="line">  <span class="keyword">delete</span>[] m_data;</span><br><span class="line">  m_data = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span> (str) + <span class="number">1</span>];</span><br><span class="line">  <span class="built_in">strcpy</span> (m_data, str.m_data);</span><br><span class="line">  <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>output: &lt;&lt; 重载</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">ostream&amp; <span class="keyword">operator</span> &lt;&lt; (ostream&amp; os, <span class="keyword">const</span> <span class="keyword">String</span>&amp; str)</span><br><span class="line">&#123;</span><br><span class="line">  os &lt;&lt; str.get_c_str();</span><br><span class="line">  <span class="keyword">return</span> os;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h4 id="p8-堆栈与内存管理"><a href="#p8-堆栈与内存管理" class="headerlink" title="p8. 堆栈与内存管理"></a>p8. 堆栈与内存管理</h4><ul>
+<li><code>Stack</code>: a memory space existing in a scope, 调用函数时存放参数以及返回地址。包括在函数中声明的<code>local</code>变量。<ul>
+<li>作用域结束后自动被清理 (析构函数)</li>
+<li>注: 如果是<code>static</code>，在生命结束后还是存在, 直到程序结束。</li>
+</ul>
+</li>
+<li><code>Heap</code>: system heap, dynamic allocates some blocks. (<strong>new</strong>) – 记得delete<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  Complex* p = <span class="keyword">new</span> Complex(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">  ...</span><br><span class="line">  <span class="keyword">delete</span> p;  <span class="comment">// **</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>new: 先分配memory, 再调用ctor<br>eg. <code>Complex* pc = new Complex(1, 2);</code><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Complex *pc;</span><br><span class="line"><span class="number">1.</span> <span class="keyword">void</span>* mem = <span class="keyword">operator</span> <span class="keyword">new</span>(<span class="keyword">sizeof</span>(Complex)); \\ <span class="built_in">malloc</span>(n)   (<span class="number">8</span> bytes, <span class="number">2</span> <span class="keyword">double</span>)</span><br><span class="line"><span class="number">2.</span> pc = <span class="keyword">static_cast</span>&lt;Complex*&gt;(mem); \\ 转型</span><br><span class="line"><span class="number">3.</span> pc-&gt;Complex::Complex(<span class="number">1</span>, <span class="number">2</span>); \\ Complex::Complex(pc, <span class="number">1</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure></li>
+<li>delete: 先调用dtor, 再释放内存<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String</span>::~<span class="keyword">String</span>(ps); <span class="comment">// 释放动态分配的内存 (m_data)</span></span><br><span class="line"><span class="function"><span class="keyword">operator</span> <span class="title">delete</span><span class="params">(ps)</span></span>; <span class="comment">// 释放内存， free()</span></span><br><span class="line"><span class="keyword">String</span>* p = <span class="keyword">new</span> <span class="keyword">String</span>[<span class="number">3</span>];</span><br><span class="line"><span class="keyword">delete</span> [] p;  <span class="comment">//唤起3此dtor***, 对于指针类型的类，</span></span><br><span class="line"><span class="comment">// 如果是complex，可以直接delete，但最好还是delete [].</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://simonazq.com/2020/05/06/notes-C++/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1629,156 +1806,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://simonazq.com/2018/12/15/Python-sorted/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Qing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Baby's breath~">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/15/Python-sorted/" itemprop="url">Python-Sorted()</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-15T10:51:56-08:00">
-                2018-12-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote class="blockquote-center">**Python --sorted()** </blockquote>
-
-<h5 id="sorted-and-sort"><a href="#sorted-and-sort" class="headerlink" title="sorted() and sort():"></a><code>sorted()</code> and <code>sort()</code>:</h5><ul>
-<li><code>sort()</code> is only for list,  while <code>sorted()</code> can sort all iterable objects.  </li>
-<li><code>sort()</code> has not return value, sorting the original list, <code>sorted</code> will return a new sorted list, and the original list stay unchanged.
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/15/Python-sorted/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1833,7 +1860,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
